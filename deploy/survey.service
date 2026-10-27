@@ -1,0 +1,15 @@
+# systemd service: keeps the Flask app running on EC2 with Gunicorn.
+# Author: Brittney Everson
+[Unit]
+Description=Healthcare Spending Survey (Flask + Gunicorn)
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/healthcare-spending-survey
+EnvironmentFile=/home/ubuntu/healthcare-spending-survey/.env
+ExecStart=/home/ubuntu/healthcare-spending-survey/venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8000 app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
