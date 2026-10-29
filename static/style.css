@@ -1,0 +1,70 @@
+/* Survey styles - Brittney Everson */
+:root {
+  --ink: #17323a;
+  --muted: #55686d;
+  --paper: #ffffff;
+  --panel: #eef4f2;
+  --line: #c9d8d4;
+  --accent: #2c6e63;
+  --accent-ink: #ffffff;
+  --error: #a3261b;
+  --error-bg: #fbecea;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e4eeeb;
+    --muted: #a8bab6;
+    --paper: #12201f;
+    --panel: #1b2e2c;
+    --line: #2f4744;
+    --accent: #6fbfae;
+    --accent-ink: #0d1a19;
+    --error: #ffb4a9;
+    --error-bg: #3a1b18;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.wrap { max-width: 620px; margin: 0 auto; padding: 48px 20px 32px; }
+h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 2.1rem; line-height: 1.2; margin: 0 0 12px; }
+.intro { color: var(--muted); margin: 0 0 32px; }
+fieldset { border: 0; padding: 24px; margin: 0 0 24px; background: var(--panel); border-radius: 10px; }
+legend { font-weight: 600; font-size: 1.1rem; padding: 0; float: left; width: 100%; margin-bottom: 12px; }
+legend + * { clear: both; }
+label { display: block; font-weight: 500; margin: 14px 0 6px; }
+label.inline { display: inline; margin: 0; font-weight: 400; }
+input[type="number"], select {
+  width: 100%; padding: 10px 12px; font: inherit; color: var(--ink);
+  background: var(--paper); border: 1px solid var(--line); border-radius: 6px;
+}
+input:disabled { opacity: .45; }
+input:focus-visible, select:focus-visible, button:focus-visible, a:focus-visible {
+  outline: 3px solid var(--accent); outline-offset: 2px;
+}
+.hint { color: var(--muted); margin: 0 0 8px; font-size: .95rem; }
+.expense-row {
+  display: grid; grid-template-columns: 22px 1fr 160px; gap: 12px; align-items: center;
+  padding: 10px 0; border-bottom: 1px solid var(--line);
+}
+.expense-row:last-child { border-bottom: 0; }
+.expense-row input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); }
+button {
+  font: inherit; font-weight: 600; padding: 12px 28px; border: 0; border-radius: 6px;
+  background: var(--accent); color: var(--accent-ink); cursor: pointer;
+}
+.errors { background: var(--error-bg); color: var(--error); padding: 16px 20px; border-radius: 8px; margin-bottom: 24px; }
+.errors p { margin: 0 0 6px; font-weight: 600; }
+.errors ul { margin: 0; padding-left: 20px; }
+a { color: var(--accent); }
+footer { margin-top: 40px; color: var(--muted); font-size: .85rem; }
+@media (max-width: 480px) {
+  .expense-row { grid-template-columns: 22px 1fr; }
+  .expense-row input[type="number"] { grid-column: 1 / -1; }
+}
