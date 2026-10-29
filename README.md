@@ -6,7 +6,7 @@
 
 A survey tool that collects participants' age, gender, total income and spending, stores it in MongoDB, exports it to CSV through a Python `User` class, and analyzes it in a Jupyter notebook. The charts are exported for a client PowerPoint. The Flask app is hosted on AWS EC2.
 
-**Live app on AWS:** `(http://54.147.159.244)`  ← replace with your EC2 address after deploying
+**Live app on AWS:** `(http://54.147.159.244)`  
 
 ---
 
